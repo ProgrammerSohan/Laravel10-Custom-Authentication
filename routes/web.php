@@ -21,6 +21,9 @@ Route::get('/', function () {
 Route::get('/register',[AuthController::class,'register'])->name('register');
 Route::post('/register',[AuthController::class,'registerPost'])->name('register');
 
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
+
 
 
 
@@ -31,7 +34,13 @@ go to=http://localhost:8000/register
 
 go to=http://localhost:8000/register
 and reload, then, register here & check db's user table
+---4
+–http://localhost:8000/login
+–ebar wrong info dia login kore dekbo
+-ebong right info dia login kore dekbo
+-http://localhost:8000/home
 
+---
 
 */
 
