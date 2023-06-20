@@ -26,7 +26,7 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
 
 Route::get('/home',[HomeController::class, 'index']);
-
+Route::delete('/logout',[AuthController::class,'logout'])->name('logout');
 
 
 /*notes
@@ -46,6 +46,14 @@ php artisan make:controller HomeController
 
 go to=http://localhost:8000/home
 
+---6
+–http://localhost:8000/home#
+-click on logout
+
+–logout kore nicher link a gele abar o home nia jaye, neyar kotha login a
+-http://localhost:8000/home#
+
+---7
 
 */
 
