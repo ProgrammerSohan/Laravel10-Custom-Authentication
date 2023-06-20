@@ -19,14 +19,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register',[AuthController::class,'register'])->name('register');
-Route::post('/register',[AuthController::class,'registerPost'])->name('register');
+Route::group(['middleware' => 'guest'], function(){
+    Route::get('/register',[AuthController::class,'register'])->name('register');
+    Route::post('/register',[AuthController::class,'registerPost'])->name('register');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
 
-Route::get('/home',[HomeController::class, 'index']);
-Route::delete('/logout',[AuthController::class,'logout'])->name('logout');
+});
+
+Route::group(['middleware'=>'auth'], function(){
+    Route::get('/home',[HomeController::class, 'index']);
+    Route::delete('/logout',[AuthController::class,'logout'])->name('logout');
+
+});
+
+
 
 
 /*notes
@@ -54,6 +62,10 @@ go to=http://localhost:8000/home
 -http://localhost:8000/home#
 
 ---7
+----solution
+
+—ekhon ei link a gele--http://localhost:8000/home#
+–login a nibe jodi login chara jete chai
 
 */
 
