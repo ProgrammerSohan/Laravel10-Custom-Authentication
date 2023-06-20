@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/register',[AuthController::class,'register'])->name('register');
-
+Route::post('/register',[AuthController::class,'registerPost'])->name('register');
 
 
 
@@ -29,7 +29,8 @@ Route::get('/register',[AuthController::class,'register'])->name('register');
 -----------------
 go to=http://localhost:8000/register
 
-
+go to=http://localhost:8000/register
+and reload, then, register here & check db's user table
 
 
 */
